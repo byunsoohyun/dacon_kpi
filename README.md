@@ -59,6 +59,14 @@
 
 ✅ 최종적으로 Order_id 가 일치할 경우 해당되는 리뷰의 평균 점수를 구하는 것으로 결정
 
+### 3. 리뷰 평점 구하기
+- reviews 에서 Order_id 와 Review_score 만 따로 추출(re_sc)
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/73f6672a-1e65-42e3-9401-1150e3ccb990)
+- Order_id 가 같은 경우 평균을 구하여 re_sc 재정의
+- 마침 예시가 동일 Order_id 인데 Review_score 가 다른 리뷰
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/7d735389-c044-4383-94ff-334621b3a0f4)
+
+
 
 ## 1차 결론
 
