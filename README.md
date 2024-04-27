@@ -81,37 +81,67 @@
 
 > (2) 판매자와 상관 없이 Product_id 자체만으로 분석(order_items_ns)
  > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/85d86348-a386-40f0-92ca-5740c831e727)
-### 2.2 order_items_ys / order_items_ns 와 re_sc 합치기
-- sql 활용하여 Order_id 가 일치할 경우 Review_score 삽입 하도록 함
+
+### 2.2 Seller_id 와 Product_id 세트 분석
+- order_items_ys 와 re_sc 합치기
 - order_items_ys & re_sc -> sc_ys
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/dc722b80-a8f5-47ed-9f50-88b6a03d5234)
-- order_items_ns & re_sc -> sc_ns
-> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/889bbd8f-520f-404b-a686-283868ad1a22)
-### 2.3 sc_ys 데이터 정리하기
+#### 2.2.1 sc_ys 데이터 정리
 - 필요한 컬럼만 추출하여 sc_ys3 로 정의
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/88167b08-76ea-4516-9789-98ead47c2b5a)
-- Product_id , Seller_id 가 일치한 행들의 평균 Review_score 로 재정의
+- Product_id , Seller_id 가 일치한 행들의 평균 Review_score 로 sc_ys4 정의
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/1be533ea-77c9-4fd5-91e3-92ba7207b251)
 
+✅ Seller_id 와 Product_id 한 세트로 본 평균 리뷰 점수 삽입 완료 (sc_ys4)
 
+#### 2.2.2 
+- 판매 가격을 보기 위해 필요한 컬럼만 추출하여 pr_ys 로 정의
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/07f1fc09-ca27-4dab-aab7-5cd9c0f39387)
+- 기존 4가지 컬럼이 동일한 것의 행 수를 추가한 Counts
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/d5250c4a-c051-442d-b025-6cfade9e5593)
+- 기존 4가지 컬럼 + Counts 컬럼이 이 동일한 경우 합치기
+- 하나라도 일치하지 않으면 컬럼이 합쳐지지 않아서 Order_id 도 동일한 것으로 취급함..
+- Row_Number 는 임의 컬럼이라 값 무시할 것
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/6f5ea78f-ec6d-4bf3-8a56-ac910580d5b4)
+- Row_Number , Order_id 컬럼 삭제
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/5beb8692-d73d-43db-ae20-922882c5943a)
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/e34b2534-d68b-47a3-88ed-03f0933d583d)
+- Product_id , Seller_id , Price 같은 경우 Counts 합산
+- Order_id 컬럼을 진작에 삭제해야 했는데 늦게 해서 합산해도 무방함
+- 앞의 두 컬럼이 일치하는데 가격이 다른 것이 있어서 3가지가 같은 경우를 합치기로 함
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/f2343cc8-e581-4777-8935-219376785e5b)
+- 판매액을 구하기 위해 Price * Counts 를 한 Total 컬럼 추가
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/ebefd4b5-c259-421d-ad81-7c4cf78f1f2b)
+- Product_id 와 Seller_id 이 동일한 행끼리 합치기
+- 이제 Price는 무시해도 괜찮음(개별 가격이기 때문에 추후 삭제함)
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/d278d08e-74e2-41b5-b82d-4c3f9b849f31)
+- corr 함수 사용하기 위해 평점과 합침 (score_price_ys)
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/4d4074e9-e3e4-44c2-9155-c3e937272124)
 
-
+### 2.3 Product_id 자체 분석
+- order_items_ns 와 re_sc 합치기
+- order_items_ns & re_sc -> sc_ns
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/889bbd8f-520f-404b-a686-283868ad1a22)
+#### 2.3.1 sc_ns 데이터 정리
 
 
 
 # 1차 결론
 
-1. Seller_id 와 Product_id 가 동시에 동일할 때 Review_score 와 Total_price(총 판매 금액) 의 상관 관계
-- -0.007800808718716167 : 거의 없음
->![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/05d0a5cc-7607-46d7-831e-2832a725e5eb)
-2. Seller_id 와 Product_id 가 동시에 동일할 때 Review_score 와 Counts(총 판매 수량) 의 상관 관계
+## 1. Seller_id 와 Product_id 가 동시에 동일할 때
+### 1.1 Review_score 와 Total_price(총 판매 금액) 의 상관 관계
+- 0.007800808718716167 : 거의 없음
+>![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/7fa4eb76-2638-4bb5-bd5d-8140bafe562e)
+
+### 1.2 Review_score 와 Counts(총 판매 수량) 의 상관 관계
 - -0.01025935443501701 : 거의 없음
->![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/4289ea4b-4277-4061-8935-3d5711141568)
-3. Product_id 기준으로 Review_score 와 Total_price(총 판매 금액) 의 상관 관계
+>![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/cf5428db-a331-48a2-a04e-52f6eaa762ba)
+
+
+## 2. Product_id 만을 기준으로
+### 2.1 Review_score 와 Total_price(총 판매 금액) 의 상관 관계
 -
->
-4. Product_id 기준으로 Review_score 와 Counts(총 판매 수량) 의 상관 관계
--
->
+### 2.2 Review_score 와 Counts(총 판매 수량) 의 상관 관계
+- 
 
 
