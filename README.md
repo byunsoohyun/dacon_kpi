@@ -126,9 +126,11 @@
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/889bbd8f-520f-404b-a686-283868ad1a22)
 #### 2.3.1 rs_ns 데이터 정리
 - 필요한 컬럼만 추출하여 rs_ns2 로 정의
-> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/a31e9e50-6ee7-48fc-8d16-6f83f579ca3c)
-- Product_id , Price 동일한 것들 리뷰 평점 구하기
-> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/3d3005fa-fc7d-40e4-9d3b-f5b1cfc32d85)
+- 가격 달라도 동일한 제품으로 취급
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/74739e74-91fa-4e7f-b458-bc65977edabd)
+- Product_id 동일한 것들 리뷰 평점 구하기 (rs_ns3)
+- ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/767e6a49-4c13-4b19-b165-49ae80746df5)
+
 
 ✅ Product_id 의 평균 리뷰 점수 삽입 완료 (rs_ns3)
 
@@ -144,8 +146,10 @@
 - Row_Number 컬럼 버리고
 - Price * Counts 한 Total 컬럼 추가 (pr_ns2)
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/bb8c7e4b-7b9c-4c1f-8ae2-2d7e451751b6)
-- Product_id 동일할 경우 sum
+- Product_id 동일할 경우 sum (pr_ns3)
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/76a1d6c2-f176-4e33-a8f0-f6c1c33f60e2)
+- corr 함수 사용하기 위해 rs_ns3 와 pr_ns3 합침
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/bd2204f0-5e6d-4fd8-9b9a-3edc77620557)
 
 
 
@@ -157,17 +161,28 @@
 ## 1. Seller_id 와 Product_id 가 동시에 동일할 때
 ### 1.1 Review_score 와 Total_price(총 판매 금액) 의 상관 관계
 - 0.007800808718716167 : 거의 없음
->![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/7fa4eb76-2638-4bb5-bd5d-8140bafe562e)
+- Total -> Total_price 로 컬럼명 변경
+>![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/bf503760-f626-47c8-ac9d-58b54ba56965)
+
 
 ### 1.2 Review_score 와 Counts(총 판매 수량) 의 상관 관계
 - -0.01025935443501701 : 거의 없음
->![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/cf5428db-a331-48a2-a04e-52f6eaa762ba)
+- Total -> Total_price 로 컬럼명 변경
+>![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/3ffaf0f2-676e-4334-85a0-3cc8ae67ab70)
 
 
 ## 2. Product_id 만을 기준으로
 ### 2.1 Review_score 와 Total_price(총 판매 금액) 의 상관 관계
--
-### 2.2 Review_score 와 Counts(총 판매 수량) 의 상관 관계
-- 
+- -0.007445772259951883 : 거의 없음
+- Total -> Total_price 로 컬럼명 변경
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/f938691b-169e-4d66-a059-c069ef99f6f8)
 
+### 2.2 Review_score 와 Counts(총 판매 수량) 의 상관 관계
+- -0.009771342784221454 : 거의 없음
+- Total -> Total_price 로 컬럼명 변경
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/10f4c8d6-47ca-4317-8608-9371e3b17898)
+
+
+## 3. 시간이 된다면...
+### 셀러 아이디를 기준으로 평점이랑 판매액/판매 수량 기준 상관계수 보기?
 
