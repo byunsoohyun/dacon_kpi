@@ -84,17 +84,18 @@
 
 ### 2.2 Seller_id 와 Product_id 세트 분석
 - order_items_ys 와 re_sc 합치기
-- order_items_ys & re_sc -> sc_ys
+- order_items_ys & re_sc -> rs_ys
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/dc722b80-a8f5-47ed-9f50-88b6a03d5234)
-#### 2.2.1 sc_ys 데이터 정리
-- 필요한 컬럼만 추출하여 sc_ys3 로 정의
+
+#### 2.2.1 rs_ys 데이터 정리
+- 필요한 컬럼만 추출하여 rs_ys3 로 정의
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/88167b08-76ea-4516-9789-98ead47c2b5a)
-- Product_id , Seller_id 가 일치한 행들의 평균 Review_score 로 sc_ys4 정의
+- Product_id , Seller_id 가 일치한 행들의 평균 Review_score 로 rs_ys4 정의
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/1be533ea-77c9-4fd5-91e3-92ba7207b251)
 
-✅ Seller_id 와 Product_id 한 세트로 본 평균 리뷰 점수 삽입 완료 (sc_ys4)
+✅ Seller_id 와 Product_id 한 세트로 본 평균 리뷰 점수 삽입 완료 (rs_ys4)
 
-#### 2.2.2 
+#### 2.2.2 Seller_id 와 Product_id 세트일 경우 가격
 - 판매 가격을 보기 위해 필요한 컬럼만 추출하여 pr_ys 로 정의
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/07f1fc09-ca27-4dab-aab7-5cd9c0f39387)
 - 기존 4가지 컬럼이 동일한 것의 행 수를 추가한 Counts
@@ -120,9 +121,17 @@
 
 ### 2.3 Product_id 자체 분석
 - order_items_ns 와 re_sc 합치기
-- order_items_ns & re_sc -> sc_ns
+- order_items_ns & re_sc -> rs_ns
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/889bbd8f-520f-404b-a686-283868ad1a22)
-#### 2.3.1 sc_ns 데이터 정리
+#### 2.3.1 rs_ns 데이터 정리
+- 필요한 컬럼만 추출하여 rs_ns2 로 정의
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/a31e9e50-6ee7-48fc-8d16-6f83f579ca3c)
+- Product_id , Price 동일한 것들 리뷰 평점 구하기
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/3d3005fa-fc7d-40e4-9d3b-f5b1cfc32d85)
+
+✅ Product_id 의 평균 리뷰 점수 삽입 완료 (rs_ns3)
+
+#### Product_id 자체일 경우 가격
 
 
 
