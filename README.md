@@ -1,4 +1,4 @@
-# dacon_kpi
+![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/daa27795-ba09-417d-a995-d6a0bef2c52c)![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/3e0128ca-0b11-485f-abbc-44fcc4198eda)# dacon_kpi
 - 참여 공모전 정보 : https://dacon.io/competitions/official/236248/overview/description
 - 1차 : 리뷰 평점과 구매의 상관관계 파악하기(~4/29)
 
@@ -98,11 +98,12 @@
 #### 2.2.2 Seller_id 와 Product_id 세트일 경우 가격
 - 판매 가격을 보기 위해 필요한 컬럼만 추출하여 pr_ys 로 정의
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/07f1fc09-ca27-4dab-aab7-5cd9c0f39387)
-- 기존 4가지 컬럼이 동일한 것의 행 수를 추가한 Counts
+- 행 합치기 위해 생성한 임의의 컬럼 Row_Number 생성(무시할 컬럼)
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/d5250c4a-c051-442d-b025-6cfade9e5593)
+- 기존 4가지 컬럼이 동일한 것의 행 수를 추가한 Counts
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/f965b04f-c4b9-412f-b98e-aee13d677be8)
 - 기존 4가지 컬럼 + Counts 컬럼이 이 동일한 경우 합치기
 - 하나라도 일치하지 않으면 컬럼이 합쳐지지 않아서 Order_id 도 동일한 것으로 취급함..
-- Row_Number 는 임의 컬럼이라 값 무시할 것
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/6f5ea78f-ec6d-4bf3-8a56-ac910580d5b4)
 - Row_Number , Order_id 컬럼 삭제
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/5beb8692-d73d-43db-ae20-922882c5943a)
@@ -132,6 +133,22 @@
 ✅ Product_id 의 평균 리뷰 점수 삽입 완료 (rs_ns3)
 
 #### Product_id 자체일 경우 가격
+- 판매 가격을 보기 위해 필요한 컬럼만 추출하여 pr_ns 로 정의
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/305fd1ca-5624-456a-922e-9e10623ae41b)
+- 행 합치기 위해 생성한 임의의 컬럼 Row_Number 생성(무시할 컬럼)
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/03e5dddc-ed71-4158-a2a0-eb274f7a4837)
+- 기존 2가지 컬럼이 동일한 것의 행 수를 추가한 Counts
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/9b38a292-c25d-4b05-a283-644a3357cd91)
+- 기존 2가지 컬럼 + Counts 컬럼이 동일한 경우 합치기
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/61d050a2-6ba1-4651-bf80-99cc709ab9da)
+- Row_Number 컬럼 버리고
+- Price * Counts 한 Total 컬럼 추가 (pr_ns2)
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/bb8c7e4b-7b9c-4c1f-8ae2-2d7e451751b6)
+- Product_id 동일할 경우 sum
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/76a1d6c2-f176-4e33-a8f0-f6c1c33f60e2)
+
+
+
 
 
 
