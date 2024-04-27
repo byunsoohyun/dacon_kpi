@@ -1,4 +1,4 @@
-![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/daa27795-ba09-417d-a995-d6a0bef2c52c)![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/3e0128ca-0b11-485f-abbc-44fcc4198eda)# dacon_kpi
+# dacon_kpi
 - 참여 공모전 정보 : https://dacon.io/competitions/official/236248/overview/description
 - 1차 : 리뷰 평점과 구매의 상관관계 파악하기(~4/29)
 
