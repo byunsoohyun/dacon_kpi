@@ -200,6 +200,10 @@
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/14e23f85-7558-4703-a89f-2b0f9f2464aa)
 - 주문이 2번 이상 있었던 제품만 ... order_counts_ys4
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/2af876d4-61d0-4c97-8352-ec1f2db2aece)
+- 2회 이상 구매가 있던 것에 결론에 사용한 df 추가 score_price_ys3
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/5306eeee-940f-4f9d-9cbc-0cd9af472855)
+- 상관계수 확인 : 순서대로 판매 횟수, 판매 수량, 판매 금액
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/40f86fa0-6db3-4be1-ae9b-1936884d746b)
 
 
 ### 3.2 제품별 판매 횟수_Seller_id 없는 버전
@@ -216,4 +220,7 @@
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/5b47a0b6-bf03-4829-aa70-3c370ce855fa)
 - 주문이 2번 이상 있었던 제품만 ... order_counts_ns4
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/6798fe65-95e4-465e-b0c1-55564d7ee794)
-
+- 2회 이상 구매가 있던 것에 결론에 사용한 df 추가 score_price_ys4
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/78cb9559-2ae4-4630-af32-fc8a78c10f0c)
+- 상관계수 확인 : 순서대로 판매 횟수, 판매 수량, 판매 금액
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/9b540a81-ab37-4f3c-a93a-ef1ba9ebcb74)
