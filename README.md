@@ -198,7 +198,22 @@
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/5077c8fd-9309-47d5-b222-30941aebcc12)
 - 필요없는 컬럼 삭제
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/14e23f85-7558-4703-a89f-2b0f9f2464aa)
+- 주문이 2번 이상 있었던 제품만 ... order_counts_ys4
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/2af876d4-61d0-4c97-8352-ec1f2db2aece)
 
 
-
+### 3.2 제품별 판매 횟수_Seller_id 없는 버전
+- Order_items 에서 필요한 컬럼만 불러서 order_counts_ns 로 정의
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/79aca716-97fc-4747-96e0-677988ea8085)
+- 동일 주문 내 동일 상품을 묶어서 중복이 없도록 하는 order_counts_ns2 정의
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/ecd1cb09-d4a8-4943-a412-6a980c5dc97b)
+- 구매 횟수 확인을 위한 Order_counts 컬럼 추가
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/3683321f-452d-4557-bd51-2c2753f0ff60)
+> 확인해보니 제대로 들어갔어요...
+- Product_id , Order_counts 모두 일치하는 경우 하나의 행으로 만드는 작업 실행 후 order_counts_ns3 로 정의
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/e97e312d-1811-44a6-a9a9-b345790ba8a2)
+- 필요없는 컬럼 삭제
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/5b47a0b6-bf03-4829-aa70-3c370ce855fa)
+- 주문이 2번 이상 있었던 제품만 ... order_counts_ns4
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/6798fe65-95e4-465e-b0c1-55564d7ee794)
 
