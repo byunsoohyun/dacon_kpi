@@ -183,6 +183,22 @@
 > ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/10f4c8d6-47ca-4317-8608-9371e3b17898)
 
 
-## 3. 시간이 된다면...
-### 셀러 아이디를 기준으로 평점이랑 판매액/판매 수량 기준 상관계수 보기?
+## 3. 다른 방식 분석
+### 제품당 주문 횟수가 2번 이상인 것들을 뽑아서 리뷰와 판매 상관계수 보기
+- 구매가 1번 뿐이면 다음 구매에 영향 미쳤는가는 아무도 모름(다음 구매가 없으니까)
+### 3.1 제품별 판매 횟수_Seller_id 있는 버전
+- Order_items 에서 필요한 컬럼만 불러서 order_counts_ys 로 정의
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/76dce55e-ffc4-476a-91d9-40fa60fdb94f)
+- 동일 주문 내 동일 셀러/상품을 묶어서 중복이 없도록 하는 order_counts_ys2 정의
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/bffe204d-5c21-4bf0-b697-37647137e4ca)
+- 구매 횟수 확인을 위한 Order_counts 컬럼 추가
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/17a72dd3-64d6-48f4-bac6-ad1774276d04)
+> 확인해보니 제대로 들어갔어요...
+- Product_id , Seller_id , Order_counts 모두 일치하는 경우 하나의 행으로 만드는 작업 실행 후 order_counts_ys3 로 정의
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/5077c8fd-9309-47d5-b222-30941aebcc12)
+- 필요없는 컬럼 삭제
+> ![image](https://github.com/byunsoohyun/dacon_kpi/assets/167173701/14e23f85-7558-4703-a89f-2b0f9f2464aa)
+
+
+
 
